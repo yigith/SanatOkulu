@@ -35,17 +35,17 @@ namespace SanatOkulu
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtAd = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cboSanatci = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.mtbYil = new System.Windows.Forms.MaskedTextBox();
+            this.pboYeniSanatci = new System.Windows.Forms.PictureBox();
             this.btnEkle = new System.Windows.Forms.Button();
+            this.mtbYil = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboSanatci = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAd = new System.Windows.Forms.TextBox();
             this.lvwEserler = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pboYeniSanatci = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboYeniSanatci)).BeginInit();
             this.SuspendLayout();
@@ -77,40 +77,28 @@ namespace SanatOkulu
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sanat Eseri";
             // 
-            // txtAd
+            // pboYeniSanatci
             // 
-            this.txtAd.Location = new System.Drawing.Point(6, 60);
-            this.txtAd.Name = "txtAd";
-            this.txtAd.Size = new System.Drawing.Size(272, 26);
-            this.txtAd.TabIndex = 1;
+            this.pboYeniSanatci.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pboYeniSanatci.Image = global::SanatOkulu.Properties.Resources.plus;
+            this.pboYeniSanatci.Location = new System.Drawing.Point(250, 122);
+            this.pboYeniSanatci.Name = "pboYeniSanatci";
+            this.pboYeniSanatci.Size = new System.Drawing.Size(28, 28);
+            this.pboYeniSanatci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pboYeniSanatci.TabIndex = 7;
+            this.pboYeniSanatci.TabStop = false;
+            this.pboYeniSanatci.Click += new System.EventHandler(this.pboYeniSanatci_Click);
             // 
-            // label2
+            // btnEkle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 99);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Sanatçısı";
-            // 
-            // cboSanatci
-            // 
-            this.cboSanatci.FormattingEnabled = true;
-            this.cboSanatci.Location = new System.Drawing.Point(6, 122);
-            this.cboSanatci.Name = "cboSanatci";
-            this.cboSanatci.Size = new System.Drawing.Size(238, 28);
-            this.cboSanatci.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 166);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Yapıldığı Yıl";
+            this.btnEkle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEkle.Location = new System.Drawing.Point(180, 242);
+            this.btnEkle.Name = "btnEkle";
+            this.btnEkle.Size = new System.Drawing.Size(98, 32);
+            this.btnEkle.TabIndex = 6;
+            this.btnEkle.Text = "EKLE";
+            this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // mtbYil
             // 
@@ -122,15 +110,41 @@ namespace SanatOkulu
             this.mtbYil.TabIndex = 5;
             this.mtbYil.ValidatingType = typeof(int);
             // 
-            // btnEkle
+            // label3
             // 
-            this.btnEkle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEkle.Location = new System.Drawing.Point(180, 242);
-            this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(98, 32);
-            this.btnEkle.TabIndex = 6;
-            this.btnEkle.Text = "EKLE";
-            this.btnEkle.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 166);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Yapıldığı Yıl";
+            // 
+            // cboSanatci
+            // 
+            this.cboSanatci.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSanatci.FormattingEnabled = true;
+            this.cboSanatci.Location = new System.Drawing.Point(6, 122);
+            this.cboSanatci.Name = "cboSanatci";
+            this.cboSanatci.Size = new System.Drawing.Size(238, 28);
+            this.cboSanatci.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 99);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Sanatçısı";
+            // 
+            // txtAd
+            // 
+            this.txtAd.Location = new System.Drawing.Point(6, 60);
+            this.txtAd.Name = "txtAd";
+            this.txtAd.Size = new System.Drawing.Size(272, 26);
+            this.txtAd.TabIndex = 1;
             // 
             // lvwEserler
             // 
@@ -159,17 +173,6 @@ namespace SanatOkulu
             // 
             this.columnHeader3.Text = "Yıl";
             this.columnHeader3.Width = 85;
-            // 
-            // pboYeniSanatci
-            // 
-            this.pboYeniSanatci.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pboYeniSanatci.Image = global::SanatOkulu.Properties.Resources.plus;
-            this.pboYeniSanatci.Location = new System.Drawing.Point(250, 122);
-            this.pboYeniSanatci.Name = "pboYeniSanatci";
-            this.pboYeniSanatci.Size = new System.Drawing.Size(28, 28);
-            this.pboYeniSanatci.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pboYeniSanatci.TabIndex = 7;
-            this.pboYeniSanatci.TabStop = false;
             // 
             // Form1
             // 

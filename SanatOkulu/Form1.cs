@@ -19,6 +19,40 @@ namespace SanatOkulu
         public Form1()
         {
             InitializeComponent();
+            SanatcileriYukle();
+        }
+
+        private void SanatcileriYukle()
+        {
+            cboSanatci.DataSource = db.Sanatcilar.OrderBy(x => x.Ad).ToList();
+            cboSanatci.ValueMember = "Id";
+            cboSanatci.DisplayMember = "Ad";
+        }
+
+        private void pboYeniSanatci_Click(object sender, EventArgs e)
+        {
+            var frm = new SanatciForm(db);
+            if (DialogResult.OK == frm.ShowDialog())
+            {
+                SanatcileriYukle();
+            }
+        }
+
+        private void btnEkle_Click(object sender, EventArgs e)
+        {
+            string ad = txtAd.Text.Trim();
+
+            if (ad == "")
+            {
+                MessageBox.Show("Lütfen eserini adını belirtiniz.");
+                return;
+            }
+
+            if (cboSanatci.SelectedIndex == -1)
+            {
+                MessageBox.Show("Lütfen bir sanatçı seçiniz.");
+                return;
+            }
         }
     }
 }

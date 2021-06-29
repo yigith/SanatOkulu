@@ -46,8 +46,11 @@ namespace SanatOkulu
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tsmiSanatcilar = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboYeniSanatci)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -70,7 +73,7 @@ namespace SanatOkulu
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtAd);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(284, 290);
             this.groupBox1.TabIndex = 1;
@@ -104,7 +107,7 @@ namespace SanatOkulu
             // 
             this.mtbYil.HidePromptOnLeave = true;
             this.mtbYil.Location = new System.Drawing.Point(6, 189);
-            this.mtbYil.Mask = "LLLL";
+            this.mtbYil.Mask = "####";
             this.mtbYil.Name = "mtbYil";
             this.mtbYil.Size = new System.Drawing.Size(272, 26);
             this.mtbYil.TabIndex = 5;
@@ -152,9 +155,9 @@ namespace SanatOkulu
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.lvwEserler.Location = new System.Drawing.Point(302, 21);
+            this.lvwEserler.Location = new System.Drawing.Point(302, 41);
             this.lvwEserler.Name = "lvwEserler";
-            this.lvwEserler.Size = new System.Drawing.Size(568, 448);
+            this.lvwEserler.Size = new System.Drawing.Size(568, 428);
             this.lvwEserler.TabIndex = 2;
             this.lvwEserler.UseCompatibleStateImageBehavior = false;
             this.lvwEserler.View = System.Windows.Forms.View.Details;
@@ -174,6 +177,22 @@ namespace SanatOkulu
             this.columnHeader3.Text = "Yıl";
             this.columnHeader3.Width = 85;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiSanatcilar});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(882, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // tsmiSanatcilar
+            // 
+            this.tsmiSanatcilar.Name = "tsmiSanatcilar";
+            this.tsmiSanatcilar.Size = new System.Drawing.Size(70, 20);
+            this.tsmiSanatcilar.Text = "Sanatçılar";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -181,14 +200,19 @@ namespace SanatOkulu
             this.ClientSize = new System.Drawing.Size(882, 481);
             this.Controls.Add(this.lvwEserler);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Sanat Okulu";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboYeniSanatci)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -207,6 +231,8 @@ namespace SanatOkulu
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiSanatcilar;
     }
 }
 

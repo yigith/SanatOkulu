@@ -20,6 +20,7 @@ namespace SanatOkulu
         {
             InitializeComponent();
             SanatcileriYukle();
+            EserleriListele();
         }
 
         private void SanatcileriYukle()
@@ -53,6 +54,39 @@ namespace SanatOkulu
                 MessageBox.Show("Lütfen bir sanatçı seçiniz.");
                 return;
             }
+
+            var eser = new Eser()
+            {
+                Ad = ad,
+                SanatciId = (int)cboSanatci.SelectedValue,
+                Yil = Convert.ToInt32(mtbYil.Text)
+                 
+            };
+            db.Eserler.Add(eser);
+            db.SaveChanges();
+            FormuResetle();
+            EserleriListele();
+        }
+
+        private void EserleriListele()
+        {
+            lvwEserler.Items.Clear();
+
+            foreach (Eser eser in db.Eserler.OrderBy(x => x.Yil))
+            {
+                ListViewItem lvi = new ListViewItem(eser.Ad);
+                lvi.SubItems.Add(eser.Sanatci.Ad);
+                lvi.SubItems.Add(eser.Yil.ToString());
+                lvwEserler.Items.Add(lvi);
+            }
+        }
+
+        private void FormuResetle()
+        {
+            txtAd.Clear();
+            mtbYil.Clear();
+            cboSanatci.SelectedIndex = -1;
+            txtAd.Focus();
         }
     }
 }

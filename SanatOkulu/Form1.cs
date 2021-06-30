@@ -71,7 +71,8 @@ namespace SanatOkulu
                 {
                     Ad = ad,
                     SanatciId = (int)cboSanatci.SelectedValue,
-                    Yil = mtbYil.Text == "" ? null as int? : Convert.ToInt32(mtbYil.Text)
+                    Yil = mtbYil.Text == "" ? null as int? : Convert.ToInt32(mtbYil.Text),
+                    Resim = Yardimci.ResimKaydet(ofdResim.FileName)
                 };
                 db.Eserler.Add(eser);
             }
@@ -80,6 +81,11 @@ namespace SanatOkulu
                 duzenlenen.Ad = ad;
                 duzenlenen.SanatciId = (int)cboSanatci.SelectedValue;
                 duzenlenen.Yil = mtbYil.Text == "" ? null as int? : Convert.ToInt32(mtbYil.Text);
+
+                if (!string.IsNullOrEmpty(ofdResim.FileName))
+                {
+                    duzenlenen.Resim = Yardimci.ResimKaydet(ofdResim.FileName);
+                }
             }
 
             db.SaveChanges();
@@ -151,6 +157,8 @@ namespace SanatOkulu
             mtbYil.Text = duzenlenen.Yil.ToString();
             btnEkle.Text = "KAYDET";
             lvwEserler.Enabled = false;
+            pboResim.Image = Yardimci.ResimGetir(duzenlenen.Resim);
+            ofdResim.FileName = null;
             btnIptal.Show();
         }
 
@@ -166,8 +174,6 @@ namespace SanatOkulu
             if (dr == DialogResult.OK)
             {
                 pboResim.Image = Image.FromFile(ofdResim.FileName);
-
-                Yardimci.ResimKaydet(ofdResim.FileName); // buradan sil
             }
         }
     }
